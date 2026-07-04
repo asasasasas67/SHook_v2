@@ -1018,7 +1018,7 @@ local function ApplyCharacterAppearance()
     end
 
     for _, part in pairs(character:GetDescendants()) do
-        if part:IsA("BasePart") and not ExcludedPartNames[part.Name] and part.Transparency < 1 then
+        if part:IsA("BasePart") and not ExcludedPartNames[part.Name] then
             if ESPSettings.CharApplyColor then part.Color = ESPSettings.CharColor end
             part.Material = ESPSettings.CharMaterial
             part.Reflectance = strength * 0.4
