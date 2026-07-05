@@ -4,11 +4,19 @@
 local CoreGui = game:GetService("CoreGui")
 local TweenService = game:GetService("TweenService")
 
-local CorrectKey = "RAGEWITHSKILL"
-local CorrectKey = "SHook_v2"
-local CorrectKey = "RAGE!"
-local CorrectKey = "XP39SN4ks8KO97I9Aa9c"
-local CorrectKey = "idI8i0KC876tT69BN7"
+local CorrectKey = {
+
+    ["RAGEWITHSKILL"] = true,
+
+    ["SHook_v2"] = true,
+
+    ["RAGE!"] = true,
+
+    ["XP39SN4ks8KO97I9Aa9c"] = true,
+
+    ["idI8i0KC876tT69BN7"] = true
+
+}
 local IsAuthenticated = false
 
 local KeyGui = Instance.new("ScreenGui")
