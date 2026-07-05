@@ -1,22 +1,18 @@
 -- =======================================================
--- [第一部分] 密鑰驗證系統 (Key System)
+-- [第一部分] 多重密鑰驗證系統 (Key System)
 -- =======================================================
 local CoreGui = game:GetService("CoreGui")
 local TweenService = game:GetService("TweenService")
 
-local CorrectKey = {
-
-    ["RAGEWITHSKILL"] = true,
-
-    ["SHook_v2"] = true,
-
-    ["RAGE!"] = true,
-
-    ["XP39SN4ks8KO97I9Aa9c"] = true,
-
-    ["idI8i0KC876tT69BN7"] = true
-
+-- 🔑 這裡放入所有可用的密鑰清單（之後要加更多直接在下面新增即可）
+local ValidKeys = {
+    "RAGEWITHSKILL",
+    "SHook_v2",
+    "RAGE!",
+    "XP39SN4ks8KO97I9Aa9c",
+    "idI8i0KC876tT69BN7"
 }
+
 local IsAuthenticated = false
 
 local KeyGui = Instance.new("ScreenGui")
@@ -74,7 +70,8 @@ BtnCorner.CornerRadius = UDim.new(0, 6)
 BtnCorner.Parent = SubmitBtn
 
 SubmitBtn.MouseButton1Click:Connect(function()
-    if KeyInput.Text == CorrectKey then
+    -- 使用 table.find 檢查玩家輸入的文字是否存在於 ValidKeys 清單中
+    if table.find(ValidKeys, KeyInput.Text) then
         SubmitBtn.Text = "驗證成功！"
         SubmitBtn.BackgroundColor3 = Color3.fromRGB(0, 180, 80)
         task.wait(0.4)
